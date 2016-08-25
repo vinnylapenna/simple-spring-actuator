@@ -29,4 +29,11 @@ public class HelloWorldService {
 		return "Hello " + this.configuration.getName();
 	}
 
+	/* TODO: ideas:
+  1. DONE - sychronized - have controller call a syncronized method that sleeps for x seconds....have two browsers initiate a request...watch one wait
+  2. IO / CPU / Memory - save a >1GB file to disk -> read it in, load each line into a persistent hashmap...see which process fails first
+  3. Make an infinite while loop that loads the current system millisecond time into a map - generate dump files
+  4. recompile / rebuild jvmtop, see if you can get overview functionality to work
+  */
+
 }

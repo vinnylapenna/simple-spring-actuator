@@ -12,24 +12,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/math-engine")
-public class MathSolverResource
-{
-   @PostMapping("/add")
-   public String addNumbers(@RequestBody double numbers[])
-   {
-      return String.valueOf(Arrays.stream(numbers).sum());
-   }
+public class MathSolverResource {
 
-   @PostMapping("curve-fit")
-   public double[] fitCurve(@RequestBody double numbers[])
-   {
-      final WeightedObservedPoints obs = new WeightedObservedPoints();
-      IntStream.range(0, numbers.length).forEach(idx -> obs.add(idx, numbers[idx]));
+  @PostMapping("/add")
+  public String addNumbers(@RequestBody double numbers[]) {
+    return String.valueOf(Arrays.stream(numbers).sum());
+  }
 
-      // Instantiate a nth-degree polynomial fitter.
-      final PolynomialCurveFitter fitter = PolynomialCurveFitter.create(10);
+  @PostMapping("/curve-fit")
+  public double[] fitCurve(@RequestBody double numbers[]) {
+    final WeightedObservedPoints obs = new WeightedObservedPoints();
+    IntStream.range(0, numbers.length).forEach(idx -> obs.add(idx, numbers[idx]));
 
-      // Retrieve fitted parameters (coefficients of the polynomial function).
-      return fitter.fit(obs.toList());
-   }
+    // Instantiate a nth-degree polynomial fitter.
+    final PolynomialCurveFitter fitter = PolynomialCurveFitter.create(10);
+
+    // Retrieve fitted parameters (coefficients of the polynomial function).
+    return fitter.fit(obs.toList());
+  }
+
 }
