@@ -1,10 +1,8 @@
-package sample.actuator;
+package com.credera.vinnylapenna;
 
 import java.util.List;
 
-/**
- * Created by jleisy on 11/6/15.
- */
+// adapted from https://github.com/leisyj/simple-microservice-example
 public class MathProblem
 {
    public enum ProblemType

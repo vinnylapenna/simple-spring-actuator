@@ -1,4 +1,4 @@
-package sample.actuator;
+package com.credera.vinnylapenna;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;
@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// adapted from https://github.com/leisyj/simple-microservice-example
 @RestController
 @RequestMapping("/math-engine")
-public class MathSolverResource {
+public class MathSolverController {
 
   @PostMapping("/add")
   public String addNumbers(@RequestBody double numbers[]) {
