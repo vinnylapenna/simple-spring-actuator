@@ -12,22 +12,25 @@ import java.util.Map;
 public class MemoryLeakController {
 
   private List<Long> list = new ArrayList<>();
+  private Map<Long, Long> map = new HashMap<>();
 
   @GetMapping("/leak/list")
   public String memoryLeakList() {
+    long i = 0;
     while(true) {
-      // wait for the impending memory leak
-      list.add(new Long(System.currentTimeMillis()));
+      // This collection will keep growing forever
+      list.add(i);
+      i++;
     }
   }
 
-  private Map<Long, Long> map = new HashMap<>();
-
   @GetMapping("/leak/map")
   public String memoryLeakMap() {
+    long i = 0;
     while(true) {
-      // wait for the impending memory leak
-      map.put(new Long(System.currentTimeMillis()), new Long(System.currentTimeMillis()));
+      // This collection will eventually be bounded in size
+      map.put(i,i);
+      i++;
     }
   }
 
