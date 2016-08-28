@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class WaitController {
 
   @GetMapping()
-  public String waitOnLockFiveSeconds() throws InterruptedException {
-    return this.waitOnLock(5000);
+  public String doWorkForFiveSeconds() throws InterruptedException {
+    return this.doWork(5000);
   }
 
   @GetMapping("/{millis}")
-  public String waitOnLock(@PathVariable long millis) throws InterruptedException {
+  public String doWork(@PathVariable long millis) throws InterruptedException {
     long start = System.currentTimeMillis();
 
     doSomethingInteresting(millis);
