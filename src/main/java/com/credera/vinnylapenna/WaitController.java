@@ -22,11 +22,11 @@ public class WaitController {
 
     long end = System.currentTimeMillis();
 
-    // Note that this time will not necessarily reflect the actual time the browser waits to receive a response
-    return "doSomethingInteresting() took " + (end - start) + " milliseconds";
+    return "\ndoSomethingInteresting() took " + (end - start) + " milliseconds";
   }
 
   private synchronized void doSomethingInteresting(long millis) throws InterruptedException{
+    // This method would normally take time to do real work, but we are sleeping for demonstration purposes
     Thread.sleep(millis);
   }
 

@@ -28,7 +28,7 @@ public class MemoryLeakController {
   public String memoryLeakMap() {
     long i = 0;
     while(true) {
-      // This collection will eventually be bounded in size
+      // This collection will be very large but will eventually be bounded in size (2^64 possible unique keys)
       map.put(i,i);
       i++;
     }

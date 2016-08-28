@@ -23,7 +23,11 @@ public class MathSolverController {
   @PostMapping("/curve-fit")
   public double[] fitCurve(@RequestBody double numbers[]) {
     final WeightedObservedPoints obs = new WeightedObservedPoints();
-    IntStream.range(0, numbers.length).forEach(idx -> obs.add(idx, numbers[idx]));
+
+    // copy input array to WeightedObservedPoints container
+    for(int idx = 0; idx < numbers.length; idx++) {
+      obs.add(idx, numbers[idx]);
+    }
 
     // Instantiate a nth-degree polynomial fitter.
     final PolynomialCurveFitter fitter = PolynomialCurveFitter.create(10);
