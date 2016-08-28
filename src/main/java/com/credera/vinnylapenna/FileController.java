@@ -15,6 +15,7 @@ public class FileController {
 
   @GetMapping("/file")
   public int readLargeFile() throws IOException {
+    // Download 1 GB file from http://engineerhammad.blogspot.com/2015/04/Download-Test-Files.html and put in same directory where java command was executed
     Path path = FileSystems.getDefault().getPath(System.getProperty("user.dir"), "test1Gb.db");
     fileContents = Files.readAllBytes(path);
     return fileContents.length;

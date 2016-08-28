@@ -1,6 +1,11 @@
+// TODO: check in Gradle wrapper
+// TODO: make Gradle specify Java 8
+// TODO: maybe force newer Gradle version
+
+// TODO: write bash script to do 10ish curls to localhost:8080/wait
 buildscript {
 	ext {
-		springBootVersion = '1.4.1.BUILD-SNAPSHOT'
+		springBootVersion = '1.4.0.RELEASE'
 	}
 	repositories {
 		// NOTE: You should declare only repositories that you need here
@@ -60,7 +65,7 @@ springBoot {
 }
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '1.6'
+	gradleVersion = '2.2.1'
 }
 
 springBoot {
